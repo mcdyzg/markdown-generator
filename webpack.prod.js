@@ -69,8 +69,6 @@ module.exports = {
 	resolve: {
 		extensions: ['.js', '.jsx'],
 		alias: {
-			'@comp': path.resolve(__dirname, './src/components'),
-			'@pages': path.resolve(__dirname, './src/pages'),
 			'@modules': path.resolve(__dirname, './src/modules'),
 			'@DB': path.resolve(__dirname, './src/db'),
 			'@store': path.resolve(__dirname, './src/store'),
@@ -78,6 +76,7 @@ module.exports = {
 			'@actions': path.resolve(__dirname, './src/actions'),
 			'@utils': path.resolve(__dirname, './src/utils'),
 			'@docs': path.resolve(__dirname, './docs'),
+			'@themes': path.resolve(__dirname, './src/themes'),
 		},
 	},
 	optimization: {

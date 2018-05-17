@@ -4,13 +4,7 @@ const webpack = require('webpack')
 const WebpackBar = require('webpackbar')
 
 module.exports = {
-	entry: {
-		blog: [
-			// 配合antd使用的时候一定要在入口里加react-hot-loader,否则热加载会报错，不使用antd的话可以在此处不加
-			'react-hot-loader/patch',
-			path.resolve(__dirname, './src/app/blog.js'),
-		],
-	},
+	entry: {},
 	// 指定当前webpack上下文，便于在任何地方指定bin命令时都按当前项目为webpack根目录
 	context: path.resolve(__dirname),
 	output: {
@@ -47,8 +41,6 @@ module.exports = {
 	resolve: {
 		extensions: ['.js', '.jsx'],
 		alias: {
-			'@comp': path.resolve(__dirname, './src/components'),
-			'@pages': path.resolve(__dirname, './src/pages'),
 			'@modules': path.resolve(__dirname, './src/modules'),
 			'@DB': path.resolve(__dirname, './src/db'),
 			'@store': path.resolve(__dirname, './src/store'),
@@ -56,6 +48,7 @@ module.exports = {
 			'@actions': path.resolve(__dirname, './src/actions'),
 			'@utils': path.resolve(__dirname, './src/utils'),
 			'@docs': path.resolve(__dirname, './docs'),
+			'@themes': path.resolve(__dirname, './src/themes'),
 		},
 	},
 	optimization: {
@@ -134,7 +127,7 @@ module.exports = {
 				use: [
 					'babel-loader',
 					{
-						loader: 'md2rc-loader',
+						loader: 'md2rc-loader/index.js',
 						options: {},
 					},
 				],
@@ -187,7 +180,7 @@ module.exports = {
 		],
 	},
 	plugins: [
-		new WebpackBar(),
+		// new WebpackBar(),
 		new webpack.DefinePlugin({
 			// 'process.env': {
 			//     NODE_ENV: '"development"'
@@ -196,10 +189,10 @@ module.exports = {
 			__TEST__: false,
 			__PRO__: false,
 		}),
-		new HtmlWebpackPlugin({
-			title: '1111',
-			template: 'index.html',
-		}),
+		// new HtmlWebpackPlugin({
+		// 	title: 'preview',
+		// 	template: 'index.html',
+		// }),
 
 		// 以下两个配合react-hot-loader实现热加载
 		new webpack.NamedModulesPlugin(),

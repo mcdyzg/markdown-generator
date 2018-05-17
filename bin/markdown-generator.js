@@ -8,7 +8,14 @@ const devConfig = require('../webpack.config.js')
 const buildConfig = require('../webpack.prod.js')
 const webpack = require('webpack')
 const chalk = require('chalk')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const log = console.log
+
+const allTheme = ['blog', 'cayman']
+const defaultTheme = 'blog'
+
+// 选择主题
+program.option('-t, --theme [tname]', 'choose a website theme')
 
 program
 	.version('0.0.1')
@@ -27,6 +34,34 @@ program
 			return
 		}
 
+		// 如果选择了主题，需要在webpack里修改相应的配置
+		let theme = program.theme
+		if (!theme || theme === true) {
+			theme = defaultTheme
+		}
+		if (typeof theme === 'string' && allTheme.indexOf(theme) !== -1) {
+			// 指定入口
+			devConfig.entry = {
+				[theme]: [
+					'react-hot-loader/patch',
+					path.resolve(__dirname, `../src/themes/${theme}`),
+				],
+			}
+
+			// 选择静态html模板
+			devConfig.plugins.push(
+				new HtmlWebpackPlugin({
+					title: 'preview',
+					template: path.resolve(
+						__dirname,
+						`../template/${theme}.html`,
+					),
+				}),
+			)
+		}
+
+		const _defaultTheme = program.theme || defaultTheme
+		devConfig.module.rules[0].use[1].options.theme = _defaultTheme
 		devConfig.module.rules[0].use[1].options.docPath = docPath
 
 		const compiler = webpack(devConfig)

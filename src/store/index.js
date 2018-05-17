@@ -34,6 +34,8 @@ const store = createStore(
 			category: category replace me,
 			// 所有的文章列表
 			article: article replace me,
+			// readme里的项目信息
+			readme: readme replace me,
 		}, // 前后端同构（服务端渲染）数据同步
 	compose(applyMiddleware(...middlewares), ...enhancers),
 )

@@ -1,0 +1,32 @@
+.content-wrap {
+	min-height: 600px;
+	background: #fff;
+	box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14),
+		0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+	border-radius: 6px 6px 0 0;
+	overflow: hidden;
+	padding: 30px 20px;
+	display: flex;
+	justify-content: center;
+	.content {
+		width: 100%;
+		max-width: 970px;
+	}
+}
+.back2home {
+	position: fixed;
+	bottom: 20px;
+	right: 30px;
+}
+
+.footer {
+	height: 100px;
+	background: #323437;
+	color: #fff;
+	text-align: center;
+	line-height: 100px;
+	a {
+		color: #fff;
+		text-decoration: none;
+	}
+}

@@ -9,7 +9,7 @@
 		"lib": "lib"
 	},
 	"scripts": {
-		"start": "webpack-dev-server",
+		"dev": "node bin/markdown-generator.js preview origin -t blog",
 		"build":
 			"cross-env NODE_ENV=production webpack --config webpack.prod.js --watch",
 		"test": "echo \"Error: no test specified\" && exit 1"

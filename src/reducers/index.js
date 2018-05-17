@@ -3,16 +3,18 @@ import { combineReducers } from 'redux'
 import store from '../store'
 import categoryReducer from './category'
 import articleReducer from './article'
+import readmeReducer from './readme'
 import currentStateReducer from './currentState'
 
 // ================================
 // 同步的 Reducers（即应用初始化所必需的）
 // ================================
 const syncReducers = {
-  // router: routerReducer,
-  category: categoryReducer,
-  article: articleReducer,
-  currentState: currentStateReducer,
+	// router: routerReducer,
+	category: categoryReducer,
+	article: articleReducer,
+	readme: readmeReducer,
+	currentState: currentStateReducer,
 }
 
 // ================================
@@ -24,10 +26,10 @@ const asyncReducers = {}
  * @return {Function} rootReducer
  */
 export default function createRootReducer() {
-  return combineReducers({
-    ...syncReducers,
-    ...asyncReducers
-  })
+	return combineReducers({
+		...syncReducers,
+		...asyncReducers,
+	})
 }
 
 /**

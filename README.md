@@ -36,6 +36,12 @@ build:
 ───website   // created
 ```
 
+## options
+
+`theme(t)`: 选择主题，目前有 blog、cayman 两种;default:blog
+
+        eg: markdown-generator preview [docDir] -t cayman
+
 ## md format(文档书写规范)
 
 ```
