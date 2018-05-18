@@ -27,7 +27,7 @@ class Menu extends Component {
 					<Link to={`/readme`}>
 						<div>readme</div>
 					</Link>
-					<a href="https://github.com/mcdyzg/fe-note">
+					<a href="https://github.com/mcdyzg/markdown-generator.git">
 						<div>github</div>
 					</a>
 				</div>

@@ -60,8 +60,10 @@ program
 			)
 		}
 
-		const _defaultTheme = program.theme || defaultTheme
-		devConfig.module.rules[0].use[1].options.theme = _defaultTheme
+		const choosedTheme = theme || defaultTheme
+		// 选择主题
+		devConfig.module.rules[0].use[1].options.theme = choosedTheme
+		// 将读取的md文档目录
 		devConfig.module.rules[0].use[1].options.docPath = docPath
 
 		const compiler = webpack(devConfig)
@@ -93,6 +95,35 @@ program
 		buildConfig.module.rules[0].use[1].options.docPath = docPath
 		const outPath = path.resolve(currentPath, 'website')
 		buildConfig.output.path = outPath
+
+		// 如果选择了主题，需要在webpack里修改相应的配置
+		let theme = program.theme
+		if (!theme || theme === true) {
+			theme = defaultTheme
+		}
+		if (typeof theme === 'string' && allTheme.indexOf(theme) !== -1) {
+			// 指定入口
+			buildConfig.entry = {
+				[theme]: [path.resolve(__dirname, `../src/themes/${theme}`)],
+			}
+
+			// 选择静态html模板
+			buildConfig.plugins.push(
+				new HtmlWebpackPlugin({
+					title: 'preview',
+					template: path.resolve(
+						__dirname,
+						`../template/${theme}.html`,
+					),
+				}),
+			)
+		}
+
+		const choosedTheme = theme || defaultTheme
+		// 选择主题
+		buildConfig.module.rules[0].use[1].options.theme = choosedTheme
+		// 将读取的md文档目录
+		buildConfig.module.rules[0].use[1].options.docPath = docPath
 
 		const compiler = webpack(buildConfig)
 		compiler.run(function() {

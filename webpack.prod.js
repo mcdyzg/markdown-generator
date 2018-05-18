@@ -6,9 +6,7 @@ const WebpackBar = require('webpackbar')
 // const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
-	entry: {
-		blog: path.resolve(__dirname, './src/app/blog.js'),
-	},
+	entry: {},
 	// 指定当前webpack上下文，便于在任何地方指定bin命令时都按当前项目为webpack根目录
 	context: path.resolve(__dirname),
 	output: {
@@ -156,11 +154,6 @@ module.exports = {
 			__PRO__: true,
 		}),
 		new CleanWebpackPlugin(['dist']),
-		new HtmlWebpackPlugin({
-			title: 'react project',
-			template: 'index.html',
-			// filename:'projectName.html'
-		}),
 		// production环境下自动压缩,下面这行可以注释掉
 		// new UglifyJSPlugin(),
 	],

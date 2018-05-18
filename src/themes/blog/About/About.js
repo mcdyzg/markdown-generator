@@ -1,7 +1,7 @@
 // i am about component
 import React, { Component } from 'react'
 import './About.scss'
-import '@themes/blog/styles/MarkDown.scss'
+import '@themes/blog/styles/cayman-markdown.scss'
 
 class About extends Component {
 	state = {}
@@ -13,7 +13,7 @@ class About extends Component {
 		return (
 			<div className="about-wrap">
 				<div
-					className="markdown-body"
+					className="main-content"
 					dangerouslySetInnerHTML={{
 						__html: `/* {{ReadmeContent}} */`,
 					}}

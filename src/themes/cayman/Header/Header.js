@@ -18,11 +18,18 @@ class Header extends Component {
 				<h1 className="project-name">{readme.name}</h1>
 				<h2 className="project-tagline">{readme.desc}</h2>
 				{buttons.map((item, index) => {
-					return (
-						<a key={index} href={item.link} className="btn">
+					// 如果是绝对路径，用a标签，如果不是，用Link
+					if (item.text.indexOf('http') === -1) {
+						return (
+							<Link key={index} to={item.link} className="btn">
+								{item.text}
+							</Link>
+						)
+					} else {
+						;<a key={index} href={item.link} className="btn">
 							{item.text}
 						</a>
-					)
+					}
 				})}
 			</section>
 		)
