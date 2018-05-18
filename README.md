@@ -69,3 +69,7 @@ time:'2017-02-02 14:20:30',
 2.  add docute theme
 3.  add vuepress theme
 4.  support anchor
+
+## CHANGELOG
+
+*   1.1.0: add cayman theme
