@@ -70,6 +70,15 @@ time:'2017-02-02 14:20:30',
 3.  add vuepress theme
 4.  support anchor
 
+## REFER TO
+
+    https://react-server.io/docs/guides/writing-pages
+    https://doc.react-china.org/docs/hello-world.html
+    https://jasonlong.github.io/cayman-theme/
+    https://docute.org/docs/essentials/installation
+    https://vuepress.vuejs.org/
+    http://react-guide.github.io/react-router-cn/docs/guides/advanced/ConfirmingNavigation.html
+
 ## CHANGELOG
 
 *   1.1.0: add cayman theme
